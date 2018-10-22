@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="craftApp">
+    <header>
+        <h1>Aide au metier sur dofus </h1>
+    </header>
+
+    <div id="craft" ng-controller="craftController">
+
+            
+            <h2>Présentation de l'application </h2>
+            <p>Cette application web est composé de deux outils ayant pour but de vous facilité les
+                 calculs d'expérience et de coût pour monter un métier sur dofus</p>
+            <p> Le premier outil vous permet de calculer le prix d'un craft, ce qui peut vous être utile dans plusieurs situations
+                comme lorsque vous vous demandé si vous avez meilleurs temps de craft ou d'acheter un item, lorsque vous voulez 
+                monter un métier ou même vous rendre compte du prix de votre prochain stuff.
+                 </p>
+                 <p> Le second outil vous permet de calculer le nombres d'items que vous devez craft afin d'arriver au niveau 
+                     désiré en fonction de votre niveau actuel et du gain en expérience fournit par le craft
+                 </p>
+
+            <h2>Calculer le prix d'un craft</h2>
+            <label>Nombres de craft souhaités </label><input type="number" ng-model="nbr_craft">
+            <table class="table table-striped table-responsive">
+                    <thead>
+                        <th scope="col"></th>
+                        <th scope="col">Nom de la ressource</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Quantité pour {{nbr_craft}}</th>
+                        <th scope="col">Prix unitaire</th>
+                        <th scope="col">Coût pour 1 craft</th>
+                        <th scope="col">Coût pour {{nbr_craft}} craft</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in recette">
+                                <th scope="row">Ressource {{$index+1}}</th>
+                                <td><input type="text" ng-model="item.nom"></td>
+                                <td><input type="text" ng-model="item.quantite"></td>
+                                <td>{{item.quantite*nbr_craft}}</td>
+                                <td><input type="text" ng-model="item.prix_unitaire"></td>
+                                <td>{{item.quantite* item.prix_unitaire}}</td>
+                                <td>{{item.quantite*nbr_craft*item.prix_unitaire}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <button class="bouton" ng-click="calcul_prix_recette()">Calculer le coût total</button>
+                    <p>Coût total pour 1 craft : {{prix_craft_unitaire}}</p>
+                    <p>Coût total pour {{nbr_craft}} craft : {{prix_craft_unitaire*nbr_craft}}</p>    
+                </div>
+    </div>
+    <hr>
+    <div id="xp" ng-controller="xpController">
+        <h2>Calculer le nombres de craft nécessaires pour passer niveau 100</h2>
+        <div>
+            <label for="xp_actuel">Combien d'expérience avez vous actuellement</label>
+            <input name="xp_actuel" type="number" ng-model="xp_actuel">
+        </div>
+        <div>
+            <label for="xp_craft">Combien d'expérience vous rapporte un craft</label>
+            <input name="xp_craft" type="number" ng-model="xp_craft">
+        </div>
+        <div>
+            <label for="lvl">Quelle niveau souhaitez vous atteindre</label>
+            <select name="lvl" id="monselect" ng-model="lvl_viser">
+                    <option value="10">10</option> 
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                    <option value="60">60</option>
+                    <option value="65">65</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                  </select>
+        </div>
+        <button class="bouton" ng-click="calcul_xp()">Calculer l'expérience nécessaire</button>
+        <p>L'expérience nécessaire pour passer niveau {{lvl_viser}} est de {{xp_necessaire}}</p>
+        <p>Vous devez crafter {{nbr_craft}} rapportant {{xp_craft}}xp pour passer niveau {{lvl_viser}}</p>
+        
+    </div>
+    
+    
+</body>
+</html>

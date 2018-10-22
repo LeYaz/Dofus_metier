@@ -1,0 +1,156 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	text-align : center;
+	background-color:  #D0F0C0;
+	font-family: 'Righteous', cursive;
+}
+
+header{
+    background: url(banner.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+header h1{
+    position: absolute;
+     top:120px;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 48px;
+}
+
+/* table{
+    width: 80%;
+    margin:60px 10%;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+} */
+input{
+    text-align: center;
+}
+
+#craft{
+
+   
+}
+
+#craft p{
+	width: 60%;
+	margin: 50px 20%;
+}
+
+hr{
+	width: 60%;
+	background-color:  #0b6623;
+}
+
+#xp{
+    background-color : #D0F0C0;
+    padding: 20px;
+}
+#xp div{
+    height: 60px;
+}
+
+button{
+    height: 50px;
+    width: 200px;
+}
+
+.bouton{
+	padding: 10px;
+    height: auto;
+    margin: 15px auto;
+    color: #50C878;
+    background-color: #fff;
+    border: #50C878 solid 2px;
+    border-radius: 6px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+ 
+}
+
+.bouton:hover{
+	color: #fff;
+    background-color:#50C878;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+/* @media screen and (max-width:800px) {
+	table {
+		display:flex;
+	}
+	thead {
+		width:20%;
+		min-width:90px;
+	}
+	tbody {
+		flex:1;
+	}
+	tr {
+		display:flex;
+		flex-direction:column;
+	}
+	th, td {
+		text-align:left;
+        border-right:0;
+        border-bottom: none;
+        /* border-bottom:1px solid black; *//*
+        height: 80px;
+    }
+  
+	tr:last-child td:last-child {
+		border-bottom:0;
+	}
+	tbody tr:not(:first-child) td::before {
+		position:absolute;
+		content:'';
+		color:black;
+		font-weight:bold;
+		width:calc(20% - 13px);
+		min-width:90px;
+		padding:5px;
+		/* border-bottom:1px solid black; *//*
+		margin-left:calc(-20% - 2px);
+        margin-top:-5px;
+        
+	}
+	tbody tr:last-child td:last-child::before {
+		border-bottom:0;
+	}
+	tbody tr:not(:first-child) td:nth-of-type(2)::before {
+		content:'Nom de la ressource';
+	}
+	tbody tr:not(:first-child) td:nth-of-type(3)::before {
+		content:'Quantité';
+    }
+    tbody tr:not(:first-child) td:nth-of-type(4)::before {
+		content:'Quantité pour x craft             ';
+    }
+    tbody tr:not(:first-child) td:nth-of-type(5)::before {
+		content:'Prix unitaire';
+    }
+    tbody tr:not(:first-child) td:nth-of-type(6)::before {
+		content:'Coût pour 1 craft            ';
+    }
+    tbody tr:not(:first-child) td:nth-of-type(7)::before {
+		content:'Coût pour X craft              ';
+	}
+
+}*/
+@media screen and (max-width:461px) {
+	#xp div{
+		height: auto;
+	}
+} 
