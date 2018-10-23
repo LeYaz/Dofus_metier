@@ -57,6 +57,8 @@ app.controller('craftController', function($scope){
 
         $scope.prix_craft_unitaire = sommes;
     };
+
+    
 })
 
 app.controller('xpController', function($scope){

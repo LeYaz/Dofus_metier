@@ -31,7 +31,7 @@
                  </p>
 
             <h2>Calculer le prix d'un craft</h2>
-            <label>Nombres de craft souhaités </label><input type="number" ng-model="nbr_craft">
+            <label>Nombres de craft souhaités </label><input type="number" ng-init="nbr_craft =''" ng-model="nbr_craft">
             <table class="table table-striped table-responsive">
                     <thead>
                         <th scope="col"></th>
@@ -46,9 +46,9 @@
                         <tr ng-repeat="item in recette">
                                 <th scope="row">Ressource {{$index+1}}</th>
                                 <td><input type="text" ng-model="item.nom"></td>
-                                <td><input type="text" ng-model="item.quantite"></td>
+                                <td><input type="text" ng-init="item.quantite =''" ng-model="item.quantite"></td>
                                 <td>{{item.quantite*nbr_craft}}</td>
-                                <td><input type="text" ng-model="item.prix_unitaire"></td>
+                                <td><input type="text" ng-init="item.prix_unitaire =''" ng-model="item.prix_unitaire"></td>
                                 <td>{{item.quantite* item.prix_unitaire}}</td>
                                 <td>{{item.quantite*nbr_craft*item.prix_unitaire}}</td>
                         </tr>
@@ -66,11 +66,11 @@
         <h2>Calculer le nombres de craft nécessaires pour passer niveau 100</h2>
         <div>
             <label for="xp_actuel">Combien d'expérience avez vous actuellement</label>
-            <input name="xp_actuel" type="number" ng-model="xp_actuel">
+            <input name="xp_actuel" ng-init="xp_actuel =''" type="number" ng-model="xp_actuel">
         </div>
         <div>
             <label for="xp_craft">Combien d'expérience vous rapporte un craft</label>
-            <input name="xp_craft" type="number" ng-model="xp_craft">
+            <input name="xp_craft" ng-init="xp_craft =''" type="number" ng-model="xp_craft">
         </div>
         <div>
             <label for="lvl">Quelle niveau souhaitez vous atteindre</label>
